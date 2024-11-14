@@ -29,7 +29,7 @@ pipeline
                     def tagged_image = "${IMAGE_NAME}:${env.BUILD_ID}"
 
                     sh """
-                    docker --build-arg TMDB_V3_API_KEY="${env.TMDB_V3_API_KEY}" -t tagged_image
+                    docker --build-arg TMDB_V3_API_KEY="${env.TMDB_V3_API_KEY}" -t tagged_image .
                     """
                     writeFile file: 'build_id.txt', text: "${env.BUILD_ID}"
                     sh 'ls -la'
