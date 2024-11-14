@@ -7,6 +7,7 @@ pipeline
         IMAGE_NAME = 'rishikeshavs/netflix-clone'
         DOCKER_HUB_CREDENTIALS = '2276428b-546e-4735-b3df-66bc4e8f1da0'
         DOCKER_BUILDKIT = "1" // Enables Docker BuildKit
+        TMDB_V3_API_KEY = "4f1a32d7b72a66deed43fc83e0636dce" //API KEY
     }
 
     stages
@@ -26,7 +27,7 @@ pipeline
                 script
                 {
                     def tagged_image = "${IMAGE_NAME}:${env.BUILD_ID}"
-                    docker build --build-arg TMDB_V3_API_KEY=4f1a32d7b72a66deed43fc83e0636dce -t tagged_image
+                    docker build --build-arg TMDB_V3_API_KEY="${env.TMDB_V3_API_KEY}" -t tagged_image
                     writeFile file: 'build_id.txt', text: "${env.BUILD_ID}"
                     sh 'ls -la'
                 }
