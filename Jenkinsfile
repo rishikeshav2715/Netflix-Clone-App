@@ -64,4 +64,20 @@ pipeline
             }
         }
     }
+
+    post
+    {
+        steps
+        {
+            emailext
+            (
+                        subject: "${env.JOB_NAME} - Build ${env.BUILD_NUMBER} - ${currentBuild.currentResult.toUpperCase()}",
+                        body: "The build status is: ${currentBuild.currentResult}. Check the details at ${env.BUILD_URL}.",
+                        to: 'rishidevopsprojects@gmail.com',
+                        from: 'jenkins@example.com',
+                        replyTo: 'jenkins@example.com',
+                        mimeType: 'text/html'
+            )
+        }
+    }
 }
