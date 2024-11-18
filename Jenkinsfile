@@ -67,7 +67,7 @@ pipeline
 
     post
     {
-        steps
+        always
         {
             emailext(
                         subject: "${env.JOB_NAME} - Build ${env.BUILD_NUMBER} - ${currentBuild.currentResult.toUpperCase()}",
