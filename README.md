@@ -52,6 +52,7 @@
 - And then follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create API Key
 - Finally, if you use v3 of TMDB API, create a file named `.env`, and copy and paste the content of `.env.example`.
   And then paste the API Key you just created.
+- Note: India has blocked TMDB website, so you will have to use VPN to see the dynamic content. 
 
 ## Third Party libraries used except for React and RTK
 
